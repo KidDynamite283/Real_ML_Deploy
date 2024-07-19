@@ -267,8 +267,8 @@ submit = st.button("Ask the Question")
 # If submit is clicked
 if submit:
     sql_query = get_gemini_response(question, prompt)
-    # st.subheader("SQL Query Generated: ")
-    # st.text(sql_query)
+    st.subheader("SQL Query Generated: ")
+    st.text(sql_query)
     
     sql_result = read_snowflake_query(sql_query)
     natural_language_response = generate_natural_language_response(question, sql_query, sql_result)
