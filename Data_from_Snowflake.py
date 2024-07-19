@@ -8,7 +8,7 @@ import google.generativeai as genai
 import pandas as pd
 
 # Configure API key
-genai.configure(api_key=AIzaSyAWMrwo3_DMNrCau5XBZY6UkxSFV565_L8)
+genai.configure(api_key = 'AIzaSyAWMrwo3_DMNrCau5XBZY6UkxSFV565_L8')
 
 # Function to load Google Gemini model and provide query as response
 def get_gemini_response(question, prompt):
