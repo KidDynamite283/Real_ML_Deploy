@@ -57,7 +57,7 @@ def generate_natural_language_response(question, sql_query, sql_result):
 prompt = [
     """
     You are the best in converting Business questions to SQL query! You have to answer all the question by taking the data from below database only. Below database must be your knowledge base to answer all the questions.
-    The SQL database has the name flight_fare and has the following columns - 
+    The SQL database has the name FLIGHT_DETAILS and has the following columns - 
     StandardDateofBooking, StandardDateofJourney, Month_of_Journey, Airline_Company, 
     Flight_Number, Flight_Class, Departure_Time, Departure_City, Arrival_Time, 
     Arrival_City, Duration_in_mins, Total_Stops, and Price.
