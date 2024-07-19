@@ -8,7 +8,7 @@ import google.generativeai as genai
 import pandas as pd
 
 # Configure API key
-genai.configure(api_key=os.getenv("my_api_key"))
+genai.configure(api_key=AIzaSyAWMrwo3_DMNrCau5XBZY6UkxSFV565_L8)
 
 # Function to load Google Gemini model and provide query as response
 def get_gemini_response(question, prompt):
@@ -56,11 +56,15 @@ def generate_natural_language_response(question, sql_query, sql_result):
 # Define your prompt
 prompt = [
     """
-    You are an expert in converting English questions to SQL query!
-    The SQL database has the name FLIGHT_DETAILS and has the following columns - 
+    You are the best in converting Business questions to SQL query! You have to answer all the question by taking the data from below database only. Below database must be your knowledge base to answer all the questions.
+    The SQL database has the name flight_fare and has the following columns - 
     StandardDateofBooking, StandardDateofJourney, Month_of_Journey, Airline_Company, 
     Flight_Number, Flight_Class, Departure_Time, Departure_City, Arrival_Time, 
     Arrival_City, Duration_in_mins, Total_Stops, and Price.
+
+    Also remember one thing that cities can also be miss spelled in the question. Like city 'Ahmedabad' can be mis-spelled as 'Amdavad' or 'Ahmedbad' or 'Ahmedabaad' or 'ahmedaabaad' or 'ahmedaabad'.
+    Same as 'Delhi' can be mis-spelled as 'Delli', 'Dilli', 'Deli'. 'Bengalore' can be mis-spelled as 'Benglore', 'Banglore', 'Bengallore' etc. 'Chennai' can be mis-spelled as 'Chenai', 'chinnai', 'chhenai'. Mumbai can be mis-spelled as 'mumba', 'bombay', 'bambai', 'mummbai' etc.
+    'Kolkata' can be mis-spelled as 'kolkta', culcatta', 'kolkatta'. 'Hyderabad' can be mis-spelled as 'Hyderbad', 'Hydeabad' 'Hyderaabad', 'Hyderabaad'. You have to identify the mis-spelled cities as well. 
 
     Description of columns:
     1) StandardDateofBooking: The date when the flight booking was made.
@@ -110,7 +114,7 @@ prompt = [
     the SQL command will be something like SELECT * FROM FLIGHT_FARE 
     WHERE Departure_City = 'City A' AND Arrival_City = 'City B';
 
-    also the sql should not have ''' in the beginning or end and sql word in the output
+    also the sql must not have ''' in the beginning or end and sql word in the output
     """
 ]
 
