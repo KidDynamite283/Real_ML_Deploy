@@ -119,7 +119,7 @@ prompt = [
 
 # Streamlit App
 st.set_page_config(page_title="Snowflake")
-st.header("Snowflake Flight Data")
+st.header("I will happy to answer your Flight Related Queries!")
 
 question = st.text_input("Input:", key='input')
 submit = st.button("Ask the Question")
@@ -127,9 +127,6 @@ submit = st.button("Ask the Question")
 # If submit is clicked
 if submit:
     sql_query = get_gemini_response(question, prompt)
-    st.subheader("SQL Query Generated: ")
-    st.text(sql_query)
-    
     sql_result = read_snowflake_query(sql_query)
     natural_language_response = generate_natural_language_response(question, sql_query, sql_result)
     st.subheader("The Response is: ")
